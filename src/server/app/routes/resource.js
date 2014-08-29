@@ -2,9 +2,10 @@
 var express         = require("express");
 var router          = express.Router();
 var GeoLocation     = require("../models/geoJson");
+var config          = require("../config");
 // db setup
 var mongoose        = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/loci"); // connect to our database
+mongoose.connect("mongodb://" + config.db.url + ":" + config.db.port + "/" + config.db.name + ""); // connect to our database
 
 // ROUTES FOR OUR API
 // =============================================================================
