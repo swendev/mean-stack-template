@@ -29,6 +29,6 @@ There are 5 grunt tasks:
 2. 2-server (starts the mean-stack-template server.js with nodemon and lints all js files on change)
 3. 3-client (starts watchers for scss processing, prefixing, linting and so on)
 4. all (combines 1-db, 2-server)
-5. build (builds your node-RESTlike module and puts it in a folder called dist)
+5. build (builds your mean-stack-template module and puts it in a folder called dist)
 
 To start a grunt task open a terminal in your mean-stack-template project folder and type in `grunt <task-name>`. 
