@@ -2,7 +2,7 @@
 <html lang="de" ng-app="app">
 <head>
 	<meta charset="utf-8" />
-	<title>basic angular scss template</title>
+	<title>mean stack template</title>
 		
 	<meta name="description" content="" />
 		
@@ -10,20 +10,24 @@
 
 	<!-- build:css css/styles.min.css -->
 	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
-	<!-- endbuild -->	
-
 	<script src="//127.0.0.1:35729/livereload.js"></script>
+	<!-- endbuild -->
 
 </head>
  
 <body>
 
-	<div ng-controller="TestCtrl">
-		{{blub}}
+	<div ng-controller="TestCtrl as test">
+		{{test.message}}
 	</div>
 
-	<!-- javascript -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<!-- ######################## javascript ######################## -->
+	<!-- build:js https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
+	<!-- endbuild -->
+	<!-- build:js https://code.angularjs.org/1.2.23/angular-route.min.js -->
+	<script type="text/javascript" src="https://code.angularjs.org/1.2.23/angular-route.js"></script>
+	<!-- endbuild -->
 
 	<!-- build:js js/app.min.js -->
 	<script type="text/javascript" src="js/angular/angular.js"></script>

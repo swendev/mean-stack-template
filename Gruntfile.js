@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 				src: ["dist"]
 			},
 			stuff: {
-				src: ["dist/scss", "dist/js", "dist/css"]
+				src: ["dist/client/scss", "dist/client/js", "dist/client/css/styles.css", "dist/client/css/styles-unprefixed.css"]
 			}
 		},
 
@@ -110,21 +110,26 @@ module.exports = function(grunt) {
 			options: {
 				noProcess: ["src/client/scss"]
 			},
-			dist: {
+			client: {
 				files: [
-					{expand: true, cwd: "src/client/", src: ["**"], dest: "dist/"}
+					{expand: true, cwd: "src/client/", src: ["**"], dest: "dist/client/"}
+				]
+			},
+			server: {
+				files: [
+					{expand: true, cwd: "src/server/", src: ["server.js", "package.json", "app/**/*", "data/db"], dest: "dist/server/"}
 				]
 			}
 		},
 		// process index.html to clean up files needed for development
 		usemin: {
-			html: "dist/index.html"
+			html: "dist/client/index.html"
 		},
 		// minify css
 		cssmin: {
 			dist: {
 				files: {
-					"dist/css/styles.min.css": ["src/client/css/styles.css"]
+					"dist/client/css/styles.min.css": ["src/client/css/styles.css"]
 				}
 			}
 		},
@@ -132,13 +137,11 @@ module.exports = function(grunt) {
 		uglify: {
 			dist: {
 				src: [
-					"src/client/js/angular/angular.js",
-					"src/client/js/angular/angular-route.js",
 					"src/client/js/*.js",
 					"src/client/js/factories/*.js",
 					"src/client/js/controllers/*.js"
 				],
-				dest: "dist/js/app.min.js"
+				dest: "dist/client/js/app.min.js"
 			}
 		},
 		// lint all javascript files
@@ -168,5 +171,17 @@ module.exports = function(grunt) {
 	grunt.registerTask("1 - db", ["shell"]);
 	grunt.registerTask("2 - server", ["concurrent:serverWatcher"]);
 	grunt.registerTask("3 - client", ["concurrent:clientWatcher"]);
-	grunt.registerTask("build", ["jshint:dev", "clean:dist", "copy", "clean:stuff", "usemin","uglify:dist", "sass:dev", "autoprefixer:dev", "cssmin:dist"]);
+	grunt.registerTask("build", [
+		"clean:dist",
+		"jshint:clientHint",
+		"jshint:serverHint",
+		"sass:dev",
+		"autoprefixer:dev",
+		"cssmin:dist",
+		"copy:client",
+		"copy:server",
+		"clean:stuff",
+		"usemin",
+		"uglify:dist"
+	]);
 };

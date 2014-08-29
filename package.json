@@ -5,10 +5,10 @@
 	"author": "Swen Gorschewski <swen@pixelforyou.de>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/nodejitsu/browsenpm.org"
+		"url": "https://github.com/swendev/mean-stack"
 	},
 	"bugs": {
-		"url": "https://github.com/nodejitsu/browsenpm.org/issues"
+		"url": "https://github.com/swendev/mean-stack/issues"
 	},
 	"devDependencies": {
 		"grunt": "~0.4.x",
