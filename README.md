@@ -2,7 +2,7 @@ mean-stack-template
 =============
 
 Mean stack with RESTlike api (without the hypertext link stuff) for node.js and mongodb.
-Javascript is written in plain javascript and for css the template uses scss.
+Javascript is written in plain javascript and as a css preprocessor the template uses scss.
 
 Requirements
 ------------
